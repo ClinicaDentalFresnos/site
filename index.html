@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -174,7 +175,25 @@
             line-height: 1.5;
         }
 
+        .menu-button {
+            display: none;
+            background: none;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .menu-button svg {
+            width: 24px;
+            height: 24px;
+            fill: #374151;
+        }
+
         @media (max-width: 768px) {
+            .menu-button {
+                display: block;
+            }
+
             .nav-links {
                 position: fixed;
                 top: max(64px, 8vh);
@@ -239,6 +258,11 @@
                 </div>
                 <span class="logo-text">Consultorio Dental Fresnos</span>
             </a>
+            <button class="menu-button" aria-label="Menú">
+                <svg viewBox="0 0 24 24">
+                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                </svg>
+            </button>
             <div class="nav-links">
                 <a href="sobre-nosotros.html">Sobre nosotros</a>
                 <a href="sucursales.html">Sucursales</a>
@@ -250,7 +274,6 @@
 
     <div class="services-container">
         <div class="services-grid">
-            <!-- Services cards remain the same -->
             <!-- 1. Odontología General -->
             <div class="service-card">
                 <div class="service-image-container">
@@ -402,5 +425,15 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+
+    <script>
+        const menuButton = document.querySelector('.menu-button');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuButton.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.
