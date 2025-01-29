@@ -1,0 +1,49 @@
+[debug] [2025-01-29T18:26:15.259Z] ----------------------------------------------------------------------
+[debug] [2025-01-29T18:26:15.261Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\jalvarez\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2025-01-29T18:26:15.262Z] CLI Version:   13.29.2
+[debug] [2025-01-29T18:26:15.262Z] Platform:      win32
+[debug] [2025-01-29T18:26:15.262Z] Node Version:  v22.13.1
+[debug] [2025-01-29T18:26:15.262Z] Time:          Wed Jan 29 2025 12:26:15 GMT-0600 (hora estándar central)
+[debug] [2025-01-29T18:26:15.262Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-01-29T18:26:15.396Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-01-29T18:26:15.396Z] > authorizing via signed-in user (jordanchaires8@gmail.com)
+[debug] [2025-01-29T18:26:15.396Z] [iam] checking project clinica-fresnos for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-01-29T18:26:15.397Z] Checked if tokens are valid: true, expires at: 1738176810623
+[debug] [2025-01-29T18:26:15.397Z] Checked if tokens are valid: true, expires at: 1738176810623
+[debug] [2025-01-29T18:26:15.398Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinica-fresnos:testIamPermissions [none]
+[debug] [2025-01-29T18:26:15.398Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinica-fresnos:testIamPermissions x-goog-quota-user=projects/clinica-fresnos
+[debug] [2025-01-29T18:26:15.398Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinica-fresnos:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-01-29T18:26:16.709Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinica-fresnos:testIamPermissions 200
+[debug] [2025-01-29T18:26:16.709Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinica-fresnos:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-01-29T18:26:16.709Z] Checked if tokens are valid: true, expires at: 1738176810623
+[debug] [2025-01-29T18:26:16.709Z] Checked if tokens are valid: true, expires at: 1738176810623
+[debug] [2025-01-29T18:26:16.709Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/clinica-fresnos [none]
+[debug] [2025-01-29T18:26:17.066Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/clinica-fresnos 200
+[debug] [2025-01-29T18:26:17.067Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/clinica-fresnos {"projectId":"clinica-fresnos","projectNumber":"997689127712","displayName":"Clinica Fresnos","name":"projects/clinica-fresnos","resources":{"hostingSite":"clinica-fresnos"},"state":"ACTIVE","etag":"1_847731c6-a532-41e4-81b0-b781f6bc5be7"}
+[info] 
+[info] === Deploying to 'clinica-fresnos'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2025-01-29T18:26:17.072Z] Checked if tokens are valid: true, expires at: 1738176810623
+[debug] [2025-01-29T18:26:17.072Z] Checked if tokens are valid: true, expires at: 1738176810623
+[debug] [2025-01-29T18:26:17.073Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-fresnos/versions [none]
+[debug] [2025-01-29T18:26:17.073Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-fresnos/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2025-01-29T18:26:18.579Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-fresnos/versions 200
+[debug] [2025-01-29T18:26:18.579Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-fresnos/versions {"name":"projects/997689127712/sites/clinica-fresnos/versions/bd65a7dd75d622f4","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[clinica-fresnos]: beginning deploy... 
+[info] i  hosting[clinica-fresnos]: found 149065 files in ./ 
+[debug] [2025-01-29T18:26:34.815Z] [hosting] uploading with 200 concurrency
+[debug] [2025-01-29T18:26:34.816Z] [hosting] hash cache [] not populated
+[debug] [2025-01-29T18:26:34.854Z] Error: EBUSY: resource busy or locked, open 'C:\Users\jalvarez\ntuser.dat.LOG1'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-01-29T18:26:34.855Z] Error: EBUSY: resource busy or locked, open 'C:\Users\jalvarez\ntuser.dat.LOG2'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-01-29T18:26:34.856Z] Error: EBUSY: resource busy or locked, open 'C:\Users\jalvarez\NTUSER.DAT'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-01-29T18:26:34.860Z] Error: EISDIR: illegal operation on a directory, read
+[error] 
+[error] Error: An unexpected error has occurred.
