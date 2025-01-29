@@ -10,33 +10,44 @@
             padding: 0;
             box-sizing: border-box;
             font-family: Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            overflow-x: hidden;
         }
 
         nav {
             background: white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
         }
 
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 64px;
+            height: max(64px, 8vh);
         }
 
         .brand-container {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: clamp(8px, 2vw, 12px);
             text-decoration: none;
+            flex-shrink: 0;
         }
 
         .brand-logo {
-            width: 50px;
-            height: 50px;
+            width: clamp(40px, 8vw, 50px);
+            height: clamp(40px, 8vw, 50px);
             border-radius: 8px;
             overflow: hidden;
         }
@@ -49,20 +60,21 @@
 
         .logo-text {
             color: #2563eb;
-            font-size: 24px;
+            font-size: clamp(18px, 4vw, 24px);
             font-weight: bold;
         }
 
         .nav-links {
             display: flex;
-            gap: 24px;
+            gap: clamp(16px, 3vw, 24px);
             align-items: center;
         }
 
         .nav-links a {
             color: #374151;
             text-decoration: none;
-            font-size: 16px;
+            font-size: clamp(14px, 3vw, 16px);
+            white-space: nowrap;
         }
 
         .nav-links a:hover {
@@ -76,7 +88,9 @@
             border-radius: 9999px;
             border: none;
             cursor: pointer;
-            font-size: 16px;
+            font-size: clamp(14px, 3vw, 16px);
+            white-space: nowrap;
+            transition: background-color 0.2s ease;
         }
 
         .book-button:hover {
@@ -85,14 +99,15 @@
 
         .services-container {
             max-width: 1200px;
-            margin: 48px auto;
-            padding: 0 20px;
+            margin: clamp(24px, 5vh, 48px) auto;
+            padding: 0 1rem;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+            gap: clamp(16px, 3vw, 24px);
+            width: 100%;
         }
 
         .service-card {
@@ -104,6 +119,7 @@
             display: flex;
             flex-direction: column;
             height: 100%;
+            min-height: 300px;
         }
 
         .service-card:hover {
@@ -146,7 +162,7 @@
         }
 
         .service-title {
-            font-size: 18px;
+            font-size: clamp(16px, 3vw, 18px);
             font-weight: 600;
             margin-bottom: 8px;
             color: #374151;
@@ -154,41 +170,62 @@
 
         .service-description {
             color: #6b7280;
-            font-size: 14px;
+            font-size: clamp(13px, 2.5vw, 14px);
             line-height: 1.5;
         }
 
-        @media (max-width: 1024px) {
-            .services-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
         @media (max-width: 768px) {
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
             .nav-links {
+                position: fixed;
+                top: max(64px, 8vh);
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 1rem;
+                flex-direction: column;
+                align-items: stretch;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
                 display: none;
             }
-            .brand-container {
-                gap: 8px;
+
+            .nav-links.active {
+                display: flex;
             }
-            .logo-text {
-                font-size: 20px;
+
+            .nav-links a, .book-button {
+                padding: 0.75rem;
+                text-align: center;
+            }
+
+            .book-button {
+                margin-top: 0.5rem;
             }
         }
 
         @media (max-width: 480px) {
-            .services-grid {
-                grid-template-columns: 1fr;
+            .services-container {
+                margin: 1rem auto;
             }
-            .brand-logo {
-                width: 40px;
-                height: 40px;
+
+            .service-card {
+                min-height: 250px;
             }
-            .logo-text {
-                font-size: 18px;
+        }
+
+        @media (hover: none) {
+            .service-card:hover {
+                transform: none;
+            }
+
+            .service-card:hover .service-image img {
+                transform: none;
+            }
+        }
+
+        @supports (height: 100dvh) {
+            .nav-links {
+                max-height: calc(100dvh - max(64px, 8vh));
+                overflow-y: auto;
             }
         }
     </style>
@@ -213,6 +250,7 @@
 
     <div class="services-container">
         <div class="services-grid">
+            <!-- Services cards remain the same -->
             <!-- 1. Odontología General -->
             <div class="service-card">
                 <div class="service-image-container">
